@@ -1,0 +1,62 @@
+<style>
+    .form {
+        text-align: center;
+        border: 5px solid slateblue;
+        border-radius: 10px 5px;
+        background-color: #86C6F4;
+        padding: 25px;
+        opacity: 0.9;
+    }
+
+    .form h1 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bolder;
+        color: white;
+        text-shadow: 2px 5px 10px #000000;
+    }
+    .result {
+        text-align: center;
+        border: 5px solid slateblue;
+        border-radius: 10px 5px;
+        background-color: tomato;
+        padding: 25px;
+        opacity: 0.9;
+    }
+    .result p {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bolder;
+        color: white;
+        text-shadow: 2px 5px 10px #000000;
+    }
+</style>
+<div class="form">
+    <div class="col-xs-12 col-sm-6 example-col">
+        <h1>Demo Form</h1>
+        <kendo-floatinglabel text="First Name">
+            <kendo-textbox [(ngModel)]="textareaValue"></kendo-textbox>
+        </kendo-floatinglabel><br>
+        <kendo-floatinglabel text="Last Name">
+            <kendo-textbox [(ngModel)]="textarealast"></kendo-textbox>
+        </kendo-floatinglabel><br>
+        <kendo-floatinglabel text="Date">
+            <kendo-datepicker [(ngModel)]="value"></kendo-datepicker>
+        </kendo-floatinglabel><br>
+        <kendo-floatinglabel text="Mobile No">
+            <kendo-numerictextbox [min]="0" [max]="9" [(ngModel)]="mobile"></kendo-numerictextbox>
+        </kendo-floatinglabel><br>
+    </div><br>
+    <button kendoButton (click)="show()">Save data</button>
+</div>
+<br>
+<div class="result">
+    <p>Name : {{textareaValue  + textarealast}}</p>
+    <p>Date of Birth : {{value}}</p>
+    <p>Mobile : {{mobile}}</p>
+</div>
+<div class="k-card-body">
+    <kendo-qrcode
+      value="https://online-demo-course.document360.io/docs"
+      errorCorrection="M"
+    >
+    </kendo-qrcode>
+  </div>

@@ -1,0 +1,135 @@
+<style>
+    .container-fluid {
+        width: 25%;
+        padding: 25px;
+        margin-top: 2%;
+        border-radius: 50px 0px 50px 0px;
+    }
+
+    .container-fluid h2 {
+        color: tomato;
+        opacity: 75%;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-align: center;
+        text-shadow: black 2px 1px;
+        outline-color: tomato;
+    }
+
+    .wrapper {
+        margin-top: -3%;
+        text-align: center;
+    }
+
+    .wrapper .k-textarea {
+        margin-right: 8px;
+        box-shadow: wheat 2px 9px 6px;
+    }
+</style>
+<div class="container-fluid shadow-lg p-3 mb-5 bg-info p-2 text-dark bg-opacity-10">
+    <h2>Registration Form</h2>
+    <form [formGroup]="registrationForm">
+        <div class="form-group">
+            <label>User Name</label>
+            <input formControlName="userName" type="text" class="form-control" id="userName" required>
+            <div *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)" class="alert alert-danger">
+                <div *ngIf="userName?.errors?.['required']">
+                    Name is required.
+                </div>
+                <div *ngIf="userName?.errors?.['minlength']">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="userName?.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input formControlName="password" type="password" class="form-control" id="password" required>
+            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger">
+                <div *ngIf="password?.errors?.['required']">
+                    Name is required.
+                </div>
+                <div *ngIf="password?.errors?.['minlength']">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="password?.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input formControlName="Confirpassword" type="password" class="form-control" required>
+            <div *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)" class="alert alert-danger">
+                <div *ngIf="userName?.errors?.['required']">
+                    Name is required.
+                </div>
+                <div *ngIf="userName?.errors?.['minlength']">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="userName?.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                </div>
+            </div>
+        </div>
+        <div formGroupName="address">
+            <div class="form-group">
+                <label>City</label>
+                <input formControlName="city" type="text" class="form-control" required>
+                <div *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)" class="alert alert-danger">
+                    <div *ngIf="userName?.errors?.['required']">
+                        Name is required.
+                    </div>
+                    <div *ngIf="userName?.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                    </div>
+                    <div *ngIf="userName?.errors?.['forbiddenName']">
+                        Name cannot be Bob.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>State</label>
+                <input formControlName="state" type="test" class="form-control" required>
+                <div *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)" class="alert alert-danger">
+                    <div *ngIf="userName?.errors?.['required']">
+                        Name is required.
+                    </div>
+                    <div *ngIf="userName?.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                    </div>
+                    <div *ngIf="userName?.errors?.['forbiddenName']">
+                        Name cannot be Bob.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Country</label>
+                <input formControlName="country" type="text" class="form-control" required>
+                <div *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)" class="alert alert-danger">
+                    <div *ngIf="userName?.errors?.['required']">
+                        Name is required.
+                    </div>
+                    <div *ngIf="userName?.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                    </div>
+                    <div *ngIf="userName?.errors?.['forbiddenName']">
+                        Name cannot be Bob.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary" style="margin-top: 3%;">Submit</button>
+            <button type="button" class="btn btn-danger text-white" (click)="loadwe()">Load Data</button>
+        </div>
+    </form>
+</div>
+<br>
+<div class="wrapper">
+    <kendo-textarea [rows]="5" [style.width.px]="453" [value]="registrationForm.value | json" resizable="auto">
+    </kendo-textarea>
+</div>
+
+<!-- [class.is-invalid]="registrationForm.get('userName').invalid && registrationForm.get('userName').touched" -->
